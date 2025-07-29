@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MXH của wtay</title>
+  <title>Các Trang MXH của wtay</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <style>
@@ -125,8 +125,8 @@
   <div class="container">
     <i class="fas fa-bars menu-btn" onclick="openPopup()"></i>
 
-    <h1>Chào mừng đến với trang web của wtay</h1>
-    <p>Trang web này được code bởi wtay và chứa những trang MXH của tui nhaa 💖</p>
+    <h1>Chào mừng đến với trang web của WTay</h1>
+    <p>Trang web này được code bởi wtay và chứa những trang MXH của wtay nhaa 💖</p>
     <ul>
       <li><a href="https://www.facebook.com/wt.15tuoi" target="_blank"><i class="fab fa-facebook-f facebook"></i> Facebook</a></li>
       <li><a href="https://www.instagram.com/qtdptris1tg/" target="_blank"><i class="fab fa-instagram instagram"></i> Instagram</a></li>
@@ -135,7 +135,7 @@
     </ul>
 
     <div id="admin-info">
-     số lượng truy cập <span id="counter">0</span>
+      Số người đã truy cập: <span id="counter">0</span>
     </div>
   </div>
 
@@ -150,6 +150,9 @@
   </div>
 
   <script>
+    // Khi ai vào web → tăng lượt
+    fetch('https://api.countapi.xyz/hit/wtay-website/visits');
+
     function openPopup() {
       document.getElementById('popup').style.display = 'flex';
     }
@@ -161,8 +164,8 @@
       if (pass === "14102007") {
         closePopup();
         document.getElementById('admin-info').style.display = 'block';
-        // Gọi API lấy số lượt truy cập
-        fetch('https://api.countapi.xyz/hit/wtay-website/visits')
+        // Lấy số lượt mà không tăng
+        fetch('https://api.countapi.xyz/get/wtay-website/visits')
           .then(res => res.json())
           .then(data => {
             document.getElementById('counter').innerText = data.value;
